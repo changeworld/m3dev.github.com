@@ -24,7 +24,7 @@ task :add_slide do
 
   # Create new branch
   head_name = $1 if Socket.gethostname =~ /^(m3\-20[\d]+)mac/
-  branch_name = "#{head_name}_#{Time.now.strftime('%Y%m%d%H%M%s')}"
+  branch_name = "feature/#{head_name}_#{Time.now.strftime('%Y%m%d%H%M%s')}"
   system("git checkout -b #{branch_name}")
   system("git add #{TALKS_FILE_PATH}")
   system("git commit -m 'add slide title: #{new['title']}'")
